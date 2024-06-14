@@ -1,6 +1,4 @@
-require('dotenv').config()
-
-const secretKey = process.env.SECRET
+const secretKey = "ULTRA SECRET KEY :O"
 
 /* 
 Absolutamente este no es el metodo para validar credenciales
