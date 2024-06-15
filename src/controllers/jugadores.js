@@ -1,9 +1,14 @@
 const { getPlayers, addPlayer } = require('../db/consultas')
 
 const obtenerJugadores = async (req, res) => {
-    const { teamID } = req.params
-    const jugadores = await getPlayers(teamID)
-    res.json(jugadores)
+    try {
+        const {teamID} = req.params
+        const jugadores = await getPlayers(teamID)
+    
+        res.json(jugadores)
+    } catch (error) {
+        res.status(error.code).send(error.message)
+    }
 }
 
 const registrarJugador = async (req, res) => {

@@ -15,7 +15,18 @@ const getTeams = async () => {
 }
 
 const getPlayers = async (teamID) => {
-    //...
+    const consulta = "SELECT jugadores.name AS name, posiciones.name AS posicion FROM jugadores INNER JOIN posiciones ON jugadores.position = posiciones.id WHERE jugadores.id_equipo = $1"
+
+    const { rows: jugadores, rowCount} = await database.query(consulta, [teamID])
+
+    if(!rowCount){
+        throw {
+            code: 404,
+            message: "No se encontraron jugadores para este equipo"
+        }
+    }
+
+    return jugadores
 }
 
 const addTeam = async (equipo) => {
