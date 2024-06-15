@@ -35,7 +35,21 @@ const addTeam = async (equipo) => {
 }
 
 const addPlayer = async ({ jugador, teamID }) => {
-    //...
+    const team = parseInt(teamID)
+    const {name, position} = jugador
+    const consulta = "INSERT INTO jugadores VALUES (DEFAULT, $1, $2, $3) RETURNING *"
+    const values = [team, name, position]
+
+    const {rows: nuevoJugador, rowCount} = await database.query(consulta, values)
+
+    if(!rowCount){
+        throw {
+            code: 400,
+            message: "No se pudo agregar al jugador"
+        }
+    }
+
+    return nuevoJugador
 }
 
 module.exports = { getTeams, addTeam, getPlayers, addPlayer }
