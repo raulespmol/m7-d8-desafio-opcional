@@ -1,12 +1,4 @@
-const { Pool } = require('pg')
-
-const pool = new Pool({
-    host: 'localhost',
-    user: 'postgres',
-    password: 'postgres',
-    database: 'futscript',
-    allowExitOnIdle: true
-})
+const database = require('./config')
 
 const getTeams = async () => {
     //...
