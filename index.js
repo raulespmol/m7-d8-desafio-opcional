@@ -16,3 +16,5 @@ app.post("/equipos", validarToken, agregarEquipo)
 
 app.get("/equipos/:teamID/jugadores", obtenerJugadores)
 app.post("/equipos/:teamID/jugadores", validarToken, registrarJugador)
+
+module.exports = app
