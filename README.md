@@ -26,3 +26,7 @@ Consultar e insertar datos utilizando un modelo relacional.
 ### Tests unitarios
 
 Definiendo codigos de estado y tipos de datos como respuestas esperadas.
+
+#
+
+> *Considerar que la información y procesos sensibles como la validación de credenciales o firma de JWT normalmente no deben estar expuestos,  pero está de esta forma para fines practicos de este desafío y no manipular más de la cuenta el material de apoyo prehecho.*
