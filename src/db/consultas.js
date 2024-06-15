@@ -24,9 +24,6 @@ const addTeam = async (equipo) => {
 
     const {rows: nuevoEquipo, rowCount} = await database.query(consulta, values)
 
-    console.log(nuevoEquipo);
-    console.log(rowCount);
-
     if(!rowCount){
         throw {
             code: 400,
